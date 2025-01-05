@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  /* 盒子大小实现元素之间的继承 */
+  box-sizing: inherit;
+}
+
+html {
+  /* 1rem（根字体大小） == 10px ，默认的根字体大小是16px */
+  font-size: 10px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+
+  /* 设置的边框和内边距的值是包含在 width 内的 */
+  box-sizing: border-box;
+}

@@ -1,0 +1,92 @@
+.btn {
+  /* 伪元素选择器，元素的某一个特殊状态选择器 */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    /* 行内块元素，可以指定盒子模型的宽高 */
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* 设置过渡动画 */
+    transition: all 0.2s;
+
+    position: relative;
+  }
+
+  /* 伪元素状态的样式设置都是基于原始元素样式状态 */
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  }
+
+  &--white {
+    background-color: #FFF;
+    color: #777;
+
+    &::after {
+      background-color: #FFF;
+    }
+
+    &:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* 伪元素选择器 */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 设置元素的显示层级 */
+    z-index: -1;
+
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: move-in-bottom 0.5s ease-out 0.75s;
+    /* 设置动画的填充效果 */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $color-primary;
+    padding: 0.3rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    color: $color-grey-light-1;
+    background-color: $color-primary;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-0.2rem);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, .3);
+    transform: translateY(0);
+  }
+}

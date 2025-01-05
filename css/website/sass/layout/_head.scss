@@ -1,0 +1,74 @@
+.header {
+  /* vh：指定当前高度为当前视口高度的95% */
+  height: 95vh;
+  /* 可以指定多个背景图片，显示优先级按照出现的先后顺序显示 */
+  background-image: linear-gradient(to right, rgba($color-primary-light, 0.85), rgba($color-primary-dark, 0.85)), url("../img/header.png");
+  background-size: cover;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  /* header设置位置为relative，为了作为子元素的绝对定位参考位置 */
+  position: relative;
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 8rem;
+  }
+
+  &__text-box {
+    /* 这里的绝对定位的变化是基于父元素的位置进行偏移 */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* 这里的translate变化不再是基于父元素的位置，而是基于当前元素进行变换操作 */
+    transform: translate(-50%, -50%);
+    /* 设置文本居中 */
+    text-align: center;
+  }
+}
+
+.heading-primary {
+  color: #FFF;
+  text-transform: uppercase;
+
+  /* 背面是否是可见 */
+  backface-visibility: hidden;
+
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+
+    /* 设置动画名称和动画执行时间 */
+    animation-name: move-in-left;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 设置动画延迟执行时间 */
+    /*animation-delay: 3s;*/
+    /* 设置动画重复执行次数 */
+    /*animation-iteration-count: 3;*/
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2rem;
+
+    /*
+    animation-name: move-in-right;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+     */
+    animation: move-in-right 1s ease-out;
+  }
+}

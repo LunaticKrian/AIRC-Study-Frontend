@@ -1,6 +1,28 @@
-.section-about {
-  background-color: $color-grey-light-1;
-  padding: 25rem 0;
+.section {
+  &-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
 
-  margin-top: -20vh;
+    margin-top: -20vh;
+  }
+
+  &-features {
+    padding: 20rem 0;
+    margin-top: -10rem;
+    background-image: linear-gradient(to right,
+            rgba($color-primary-light, 0.85),
+            rgba($color-primary-dark, 0.85)),
+    url("../img/content.png");
+
+    background-size: cover;
+
+    // 旋转变换
+    transform: skewY(-7deg);
+
+    // 选中当前元素的所有子元素
+    & > * {
+      // 旋转盒子，变回原来的角度
+      transform: skewY(7deg);
+    }
+  }
 }

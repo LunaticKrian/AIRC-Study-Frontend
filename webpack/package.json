@@ -1,0 +1,19 @@
+{
+  "name": "webpack-study",
+  "version": "1.0.0",
+  "description": "webpack study",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --entry=./script/index.js  --output-filename=bundle.js --mode=development",
+    "build-cofig": "webpack --config=./script/config/webpack.config.js"
+  },
+  "author": "krian",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "css-loader": "^7.1.2"
+  }
+}

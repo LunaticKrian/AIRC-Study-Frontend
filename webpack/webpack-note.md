@@ -74,6 +74,25 @@ PS：根目录是相对于package.json而已，package.json位于哪一个目录
 }
 ```
 
+webpack.config.js文件中需要定义上下文地址为：
+
+```javascript
+const path = require('path')
+
+module.exports = {
+    //context:path.resolve(__dirname,'../'),这句不需要, __dirname指定的就是根目录
+    entry: {
+      app: ['./src/index.js'],
+      about: ['./src/about.js']
+    },
+    output: {
+    
+      path: path.resolve(__dirname,'../dist'),
+      filename: '[name].js',
+    }
+};
+```
+
 webpack-dev-server 
 
 ```shell
@@ -81,4 +100,14 @@ npm install webpack-dev-server --save-dev
 ```
 
 ## Webpack 预处理器 Loader
+
+---
+
+## 样式预处理
+
+### sass 与 scss：
+
+```shell
+npm install sass-loader node-sass
+```
 

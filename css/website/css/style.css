@@ -200,6 +200,16 @@ body {
     -webkit-background-clip: text;
     color: transparent; }
 
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem; }
+  .card__side {
+    background-color: orangered;
+    height: 50rem;
+    transition: all 0.8s; }
+  .card:hover .card__side {
+    transform: rotateY(180deg); }
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
@@ -213,6 +223,11 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tours {
+  padding: 25rem 0 50rem 0;
+  margin-top: -10rem;
+  background-color: #f7f7f7; }
 
 .header {
   /* vh：指定当前高度为当前视口高度的95% */

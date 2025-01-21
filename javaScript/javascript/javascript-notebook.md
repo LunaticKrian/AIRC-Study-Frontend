@@ -167,7 +167,24 @@ arguments 关键字用于接受普通函数传递进来的参数列表，仅存�
 
 ### Closure 函数闭包
 
+函数闭包的目的是：在ES6+语法中，函数作用域中定义的变量（const、let）只能在当前作用域（或其子作用域）能访问修改。
+函数闭包通过定义函数的返回值是一个函数，该函数可以对函数作用域中的变量进行操作。
 
+函数闭包避免了函数变量在不同作用域之间被污染的风险。
+
+### Array 数组函数：
+
+#### at 函数
+
+#### foreach 方法
+
+```javascript
+array.forEach(callbackFn(currentValue, index, arr), thisValue)
+```
+
+- currentValue：当前元素
+- index：当前元素的索引值
+- arr：当前元素所属的数组对象
 
 ---
 

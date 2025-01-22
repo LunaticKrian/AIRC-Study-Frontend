@@ -2,11 +2,21 @@
 
 ---
 
-严格模式
+使用 javaScript 严格模式
 
 ```javascript
 'use strict';
 ```
+
+**什么是严格模式？**
+
+采用具有限制性 JavaScript 变体的一种方式，从而使代码隐式地脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。
+
+1. 严格模式通过抛出错误来消除了一些原有静默错误。
+2. 严格模式修复了一些导致 JavaScript 引擎难以执行优化的缺陷：有时候，相同的代码，严格模式可以比非严格模式下运行得更快。
+3. 严格模式禁用了在 ECMAScript 的未来版本中可能会定义的一些语法。
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode
 
 函数定义
 
@@ -200,3 +210,110 @@ array.forEach(callbackFn(currentValue, index, arr), thisValue)
 
 
 ## URL API
+
+---
+
+# First Project 
+
+---
+
+# ⚠️JavaScript 面向对象编程
+
+## Prototype 原型
+
+每个 JavaScript 对象都有一个与之关联的原型对象，通过原型对象，可以实现属性和方法的共享，从而减少内存占用。
+
+所有的 JavaScript 对象都会从一个 prototype（原型对象）中继承属性和方法，JavaScript 对象可以访问原型对象上的属性和方法。
+
+原型是一个对象，它是其他对象的模板或蓝图。当一个对象试图访问一个属性或方法时，如果在该对象自身没有找到，JavaScript 会沿着原型链向上查找，直到找到对应的属性或方法，或者达到原型链的顶端 null 为止。
+
+![prototype.png](notebook-image/prototype.png)
+
+### Constructor 构造函数：
+
+```javascript
+// 定义一个Person类的构造函数
+const Person = function (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// 使用构造函数实例化一个person对象
+const person = new Person("krian", 18);
+```
+
+通过 `new`关键字 调用构造函数创建的对象都会带有一个`prototype`属性，创建出来的对象可以访问`prototype`属性上绑定的方法和属性。
+（PS：是直接调用，而不是通过`prototype`属性`.`方法名调用）
+
+在构造函数的`prototype`属性上绑定方法（属性），就可以给基于此构造函数创建的对象增加方法（属性）：
+
+```javascript
+// 定义了Students的构造函数
+function Students(name, height, age) {
+    this.name = name;
+    this.height = height;
+    this.age = age;
+    this.outputInfo  = function() {
+        document.write('name = ' + this.name +  '<br\>' + 'height = ' + this.height + '<br\>');
+    }
+}
+
+//增加一个新方法
+Students.prototype.newFunction = function() {
+    document.write('此方法是通过prototype继承后实现的');
+}
+```
+
+#### 对象的 __proto__ 属性
+
+每个 JavaScript 对象（除了 null）都自动拥有一个隐藏的属性 `__proto__`，它指向该对象的原型对象。这个 `__proto__` 是实现继承的关键：
+
+```javascript
+let obj = new Object();
+
+// 输出: true, 即 obj 的原型是 Object.prototype
+console.log(obj.__proto__ === Object.prototype); 
+```
+
+![prototype-function.png](notebook-image/prototype-function.png)
+
+![prototype-chain.png](notebook-image/prototype-chain.png)
+
+
+### ES6 Class
+
+Class 是一种特殊的函数
+
+```javascript
+// class 表达式
+const Person = class {
+    // Class 定义
+}
+```
+
+```javascript
+// class 声明式
+class Person {
+    // Class 定义
+}
+```
+
+使用 Class 定义一个类，能很好的集成属性和方法在类中，Class 会自动将其中定义的属性和方法绑定到类的.prototype属性上。
+
+```javascript
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // 定义方法
+    showInfo() {
+        console.log(this.name, this.age);
+    }
+}
+```
+
+1. 类的定义是没有进行提升的，使用Class必须是在其声明后。
+2. 类和函数一样，类是特殊的构造函数，因此也是JavaScript的一等公民。意味着他可以被作为参数传递，也可以作为函数的返回值。
+3. Class类{}代码块域始终是以严格模式执行的

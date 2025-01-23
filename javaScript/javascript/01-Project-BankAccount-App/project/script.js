@@ -1,14 +1,9 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
-/////////////////////////////////////////////////
 // Data
-
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
+// 账户信息1
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
@@ -29,6 +24,7 @@ const account1 = {
   locale: 'pt-PT', // de-DE
 };
 
+// 账户信息2
 const account2 = {
   owner: 'Jessica Davis',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
@@ -49,10 +45,12 @@ const account2 = {
   locale: 'en-US',
 };
 
+// 账户列表
 const accounts = [account1, account2];
 
+
 /////////////////////////////////////////////////
-// Elements
+// Elements 获取页面中定义的DOM元素节点
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -78,10 +76,17 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+
 /////////////////////////////////////////////////
 // Functions
 
+/**
+ * 展示用户的交易流水记录
+ * @param movements
+ * @param sort
+ */
 const displayMovements = function (movements, sort = false) {
+  // 覆盖指定元素节点下的DOM元素内容
   containerMovements.innerHTML = '';
 
   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
@@ -91,13 +96,11 @@ const displayMovements = function (movements, sort = false) {
 
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
         <div class="movements__value">${mov}€</div>
-      </div>
-    `;
+      </div>`;
 
+    // 指定节点位置新增DOM元素
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
@@ -129,6 +132,10 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
+/**
+ * 通过用户姓名构建用户名（取单词的开头字母组成）
+ * @param accs
+ */
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -248,6 +255,5 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
-/////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES

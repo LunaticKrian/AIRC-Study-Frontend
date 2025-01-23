@@ -25,7 +25,7 @@ Git地址：https://github.com/jonasschmedtmann/complete-javascript-course
 - 更全面的知识点讲解 + Code示例
 - 更有挑战性的综合项目
 
-PS：唯一的壁垒是英语🤣，但是Jonas的发音非常流利标准（同时提升一波听力）（如果你通过阿三老师的课...这种体验更极致-懂的都懂，不懂的都不懂🤣）
+PS：唯一的壁垒是英语🤣，但是Jonas的发音非常流利标准（同时提升一波听力）（如果你听过阿三老师的课...那种体验更极致-懂的都懂，不懂的都不懂🤣）
 
 # 学习建议：
 
@@ -44,10 +44,11 @@ PS：唯一的壁垒是英语🤣，但是Jonas的发音非常流利标准（同
 【大神大佬】：
 - 我直接一手膜拜（我能说什么？求带飞🙏）
 
-# 最后也是最重要的：非常感谢UP主的翻译工作
+# 最后也是最重要的：非常感谢UP主的翻译工作，已支持UP主的网站建设！！！
+# 最后的最后：在此祝大家2025年新年快乐，阖家幸福，万事遂心意 🎉
 ```
 
-- 【进阶】TypeScript：[TypeScript学习笔记](./javaScript/typescript/typescript-notebook.md)
+- 【进阶】TypeScript：[TypeScript学习笔记](typescript/typescript-notebook.md)
 
 ### 构建工具
 

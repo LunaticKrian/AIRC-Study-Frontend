@@ -196,12 +196,35 @@ array.forEach(callbackFn(currentValue, index, arr), thisValue)
 - index：当前元素的索引值
 - arr：当前元素所属的数组对象
 
+#### 数组转换函数
+
+这组函数在执行结束后会返回一个全新的数组，而不是在原始对象上进行操作。
+
+![array-func.png](notebook-image/array-func.png)
+
 ---
 
 # Web API
 
 ## HTML DOM API
 
+### 新增DOM元素
+
+- `insertAdjacentHTML()` 
+
+```javascript
+insertAdjacentHTML(position, text)
+```
+
+```html
+<!-- beforebegin -->
+<p>
+  <!-- afterbegin -->
+  foo
+  <!-- beforeend -->
+</p>
+<!-- afterend -->
+```
 
 ## Web Storage API
 

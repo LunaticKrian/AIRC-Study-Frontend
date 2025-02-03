@@ -184,6 +184,8 @@ arguments 关键字用于接受普通函数传递进来的参数列表，仅存�
 
 ### Array 数组函数：
 
+![array-function.png](notebook-image/array-function.png)
+
 #### at 函数
 
 #### foreach 方法
@@ -202,11 +204,98 @@ array.forEach(callbackFn(currentValue, index, arr), thisValue)
 
 ![array-func.png](notebook-image/array-func.png)
 
+#### Array.from() 创建数组
+
+---
+
+# Javascript 数值和时间
+
+## Javascript 数值
+
+Javascript 中的数值都是以浮点数进行表示的，无论在声明的时候使用的是整数还是浮点数，内部表示都是浮点数。
+
+注意：Javascript 中的数字存在精度问题，因此在进行计算的过程中如果对于数字非常敏感的场景中需要针对这个问题进行处理。
+
+## Javascript 时间
+
+
+### 日期计算
+
+
+
+## 国际化 API
+
+
+## 定时器
+
+### 延时调用 setTimeout：
+
+延时调用：定义超时执行的函数，函数只会被调用一次。
+
+- 定义延时调用函数：
+
+```javascript
+setTimeout(() => {
+    // 延时执行的函数逻辑
+}, 3000)  // 指定延时执行的时间（ms 毫秒）
+```
+
+可以给延时执行的函数传入参数：
+
+```javascript
+setTimeout((arg01, arg02) => {
+    console.log(arg01, arg02)
+}, "arg01", "arg02", 3000)
+```
+
+上面的 "arg01" 和 "arg02" 会传入到延时执行函数中。
+
+- 取消延时调用：
+
+在延时执行时间到之前，我们可以通过调用方法中断延时记时，从而使得延时函数的调用不会被触发。
+
+```javascript
+// 使用变量接受延时执行的定时器
+const timer = setTimeout(() => {
+    // 延时执行的函数逻辑
+}, 3000);
+
+// 取消执行
+clearTimeout(timer);
+```
+
+### 定时调用 setInterval：
+
+- 定义 定时调用
+
+```javascript
+setInterval(() => {
+    // 定时调用函数逻辑
+}, 3000)  // 定义调用时间间隔
+```
+
+- 取消 定时调用
+
+```javascript
+const interval = setInterval(() => {
+    // 定时调用函数逻辑
+}, 3000)
+
+// 取消定时调用
+clearInterval(interval)
+```
+
 ---
 
 # Web API
 
 ## HTML DOM API
+
+Javascript 通过操作 DOM 来实现对网页内容的控制。DOM 是 Javascript 和网页页面内容的一个交互接口。
+
+
+
+
 
 ### 新增DOM元素
 

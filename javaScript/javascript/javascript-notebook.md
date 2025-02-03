@@ -317,11 +317,17 @@ clearInterval(interval)
 
 Javascript 通过操作 DOM 来实现对网页内容的控制。DOM 是 Javascript 和网页页面内容的一个交互接口。
 
+![dom-node.png](notebook-image/dom-node.png)
 
+### 查询DOM元素
 
+- `document.documentElement` 属性中保存了整个页面元素
+- `document.head` 属性中保存了页面的头部信息（页面不可见）
+- `document.body` 属性中保存了页面的主体信息（页面内容可见）
 
+### 创建DOM元素
 
-### 新增DOM元素
+TIPS：在控制DOM节点元素的新增的同时，我们同样可以控制节点元素上的属性的修改（新增、更新、删除）
 
 - `insertAdjacentHTML()` 
 
@@ -338,6 +344,114 @@ insertAdjacentHTML(position, text)
 </p>
 <!-- afterend -->
 ```
+
+### 删除DOM元素
+
+- `元素.remove()`：移除指定元素的所有子元素节点
+
+### DOM节点 样式、属性、选择器 控制
+
+#### 样式
+
+TIPS：在使用JavaScript控制样式时，样式属性名需要使用驼峰命名规则。
+
+```javascript
+// 控制元素节点的行内样式
+
+```
+
+#### 属性
+
+`dataset` 可以获取DOM元素上的所有属性集合（包括自定义的属性）
+
+
+
+#### 选择器
+
+`classlist` 可以获取DOM元素上的所有选择器集合
+
+
+### DOM 元素事件
+
+MDN事件参考：https://developer.mozilla.org/zh-CN/docs/Web/Events
+
+#### 添加事件
+
+```javascript
+// 给element元素添加一个监听事件，当事件触发时，执行回调函数
+element.addEventListener('事件名称', function (event) {
+    // 函数体
+})
+```
+
+可以直接指定元素的事件属性来绑定触发事件时执行的回调函数：
+
+```javascript
+element.onmouseenter = function (e) {
+    // 函数体
+}
+```
+
+#### 事件冒泡
+
+事件捕获是有DOM树顶层开始依次向下传递，会依次经过目标元素的祖先元素，到达目标元素后开始处理事件响应执行回调函数。
+
+事件冒泡则是事件触发响应结束之后，沿着目标元素依次向DOM树顶层返回的过程，会依次经过目标元素的祖先元素。
+
+在事件返回的过程中，如果祖先元素中也绑定了相应的事件处理的回调函数，那么也将会被触发。
+
+![event-prop.png](notebook-image/event-prop.png)
+
+##### 阻止事件冒泡
+
+```javascript
+// 阻止element元素的事件冒泡，此时事件响应不会再沿着祖先元素进行返回
+element.stopPropagation();
+```
+
+##### 事件委托
+
+事件委托的实现通常涉及将事件监听器绑定到一个父元素上，而不是每个子元素上单独设置监听器。
+当事件发生时，利用事件冒泡的特性，事件会传播到父元素，由父元素的监听器处理。
+例如，如果有一个列表，你可以在列表的父元素上设置点击事件监听器，而不是在每个列表项上单独设置。
+
+### DOM 遍历
+
+### 交叉观察器 API
+
+交叉观察器 API（Intersection Observer API）提供了一种异步检测目标元素与祖先元素或顶级文档的视口相交情况变化的方法。
+
+交叉观察器 API 允许你配置一个回调函数，当以下情况发生时会被调用：
+
+目标元素与设备视口或指定元素相交。在交叉观察器 API 中，指定元素被称为根元素或根。
+观察器（Observer）第一次监听观察目标元素。
+通常情况下，需要观察目标元素最近的可滚动祖先的交集变化，如果目标元素不是可滚动元素的后代，则需要观察设备视口的交集变化。要观察相对于设备视口的交集，请为 root 选项指定 null。请继续阅读有关交叉观察器选项的更详细说明。
+
+无论你是使用视口还是其他元素作为根元素，API 的工作方式都是一样的，只要目标元素的可见性发生变化，与根元素的交集达到所需的程度，就会执行你提供的回调函数。
+
+目标元素与其根元素的交集程度就是交叉比。它表示目标元素可见的百分比，数值介于 0.0 和 1.0 之间。
+
+- 创建一个交叉观察器：
+
+```javascript
+let options = {
+  root: document.querySelector("#scrollArea"),
+  rootMargin: "0px",
+  threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(callback, options);
+```
+
+### DOM 事件生命周期
+
+DOM生命周期事件包括DOMContentLoaded、load、beforeunload和unload，它们在不同的加载阶段触发，帮助开发者更好地管理页面加载和用户交互。
+
+![javascript-load.png](notebook-image/javascript-load.png)
+
+![javascript-load-compare.png](notebook-image/javascript-load-compare.png)
+
+
 
 ## Web Storage API
 

@@ -204,6 +204,30 @@ array.forEach(callbackFn(currentValue, index, arr), thisValue)
 
 ![array-func.png](notebook-image/array-func.png)
 
+#### find 和 findindex 函数
+
+```javascript
+
+```
+
+#### some 函数
+
+```javascript
+
+```
+
+#### flat 和 flatmap 函数
+
+- flat 展开数组元素到一个数组中（深度嵌套的元素都会被展开）
+
+```javascript
+
+```
+
+#### 数组排序
+
+
+
 #### Array.from() 创建数组
 
 ---

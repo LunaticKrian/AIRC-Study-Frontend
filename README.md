@@ -12,14 +12,15 @@
 
 ### HTML
 
-- HTML：[](./html/html-notebook.md)
+- 【基础】HTML：[HTML 学习随笔](./html/html-notebook.md)
 
 ### CSS 层叠样式
+
 - 【进阶】SCSS 
 
 
 ### JavaScript
-- 【基础】JavaScript：[JavaScript学习笔记](./javaScript/javascript/javascript-notebook.md)
+- 【基础】JavaScript：[JavaScript 学习随笔](./javaScript/javascript/javascript-notebook.md)
 
 ```text
 课程地址：https://www.udemy.com/course/the-complete-javascript-course/?couponCode=KEEPLEARNING
@@ -50,22 +51,33 @@ PS：唯一的壁垒是英语🤣，但是Jonas的发音非常流利标准（同
 【大神大佬】：
 - 我直接一手膜拜（我能说什么？求带飞🙏）
 
-# 最后也是最重要的：非常感谢UP主的翻译工作，已支持UP主的网站建设！！！
 # 最后的最后：在此祝大家学习工作生活顺利，阖家幸福，万事遂心意 🎉
 ```
 
-- 【进阶】TypeScript：[TypeScript学习笔记](typescript/typescript-notebook.md)
+- 【进阶】TypeScript：[TypeScript 学习随笔](typescript/typescript-notebook.md)
+
+### 服务端
+
+- 【基础】NodeJs：[NodeJs 学习随笔](node/node-notebook.md)
+
+
+
 
 ### 构建工具
 
-- webpack 前段工程化构建工具： [webpack学习笔记](./webpack/webpack-note.md)
+- webpack 前段工程化构建工具： [webpack 学习随笔](./webpack/webpack-note.md)
 
+### 面试题解
 
-
+- HTML 部分题解：
+- CSS 部分题解：
+- JavaScript 部分题解：
 
 ---
 
-PS：记得学习结束后，提交本次更新的内容哟～ 🎉
+# 书籍资源
+
+
 
 ---
 
@@ -84,3 +96,9 @@ PS：在学习生活过程中如果遇到什么问题欢迎来和我沟通交流
 ---
 
 ### ⛔ 本仓库仅用于学习交流使用，禁止任何商业行为哟 ~
+
+---
+
+PS：记得学习结束后，提交本次更新的内容哟～ 🎉
+
+---

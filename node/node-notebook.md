@@ -102,9 +102,136 @@ Routing 路由
 
 通过Node服务端可以使用HTML模板构建HTML文件，以HTTP的方式直接响应请求，返回HTML页面。
 
+---
 
+### 模块的导出和引入
+
+#### 导出
+
+`module.exports` 可以导出这个绑定的匿名函数
+
+```javascript
+// 使用module.exports属性
+module.exports = () => {
+    // 函数体
+}
+```
+
+#### 导入
+
+`require(模块)` 可以导入指定模块导出的数据
+
+```javascript
+const func = require("模块路径")
+```
 
 ---
 
 ## ⚠️ 服务端响应类型汇总记录
 
+
+---
+
+## NPM 包管理器
+
+NPM 官网地址：https://www.npmjs.com/
+
+![img.png](notebook-image/npm-homepage.png)
+
+### NPM 初始化
+
+- 初始化 NPM 项目（使用NPM管理项目）：
+
+```shell
+npm init
+```
+
+初始化完成之后会在项目的根目录生成一个`package.json`文件，这个文件中记录了项目的基本信息：
+
+```json
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "web site",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "krian",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "8.0"
+  }
+}
+```
+
+### NPM 包安装
+
+#### 安装三方包：
+
+```shell
+npm install 三方包名
+```
+
+PS：这里不再需要使用`--save`来指定包安装并记录到`dependences`依赖域中，默认就是带有`--save`的安装方式。
+
+这里安装了一个字符串转换工具 `slugify`，（将字符串转换为URL友好的格式）
+
+```shell
+npm install slugify
+```
+
+安装一个开发依赖，则需要使用`--save-dev`：
+
+```shell
+npm install nodemon --save-dev
+```
+
+PS：这里需要使用`--save-dev`来指定安装的三方包是在开发阶段使用，在进行打包构建时不会被打包进入项目中。
+在`package.json`中，开发依赖会被记录到`devDependences`依赖域中
+
+#### NPM 全局安装：
+
+使用全局安装后，这个包可以在电脑的任何位置使用
+
+```shell
+npm install --global
+```
+
+---
+
+### NPM 包管理
+
+#### 包版本号
+
+- 查看包版本更新信息
+
+- ^
+- ~
+- *
+
+```shell
+npm outdated
+```
+
+---
+
+📌【经典面试题】当我我们访问一个网址时，整个过程发生了什么？
+
+![access-website-progress.png](notebook-image/access-website-progress.png)
+
+![technical-fullstack.png](notebook-image/technical-fullstack.png)
+
+![dynamic-vs-api.png](notebook-image/dynamic-vs-api.png)
+
+--- 
+
+## Node 架构
+
+![node-architecture.png](notebook-image/node-architecture.png)
+
+### Thread Pool 线程池
+
+![thread-pool.png](notebook-image/thread-pool.png)
+
+### Event loop 事件循环

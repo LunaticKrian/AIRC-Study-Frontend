@@ -567,3 +567,111 @@ class Person {
 1. 类的定义是没有进行提升的，使用Class必须是在其声明后。
 2. 类和函数一样，类是特殊的构造函数，因此也是JavaScript的一等公民。意味着他可以被作为参数传递，也可以作为函数的返回值。
 3. Class类{}代码块域始终是以严格模式执行的
+
+#### Getter 和 Setter
+
+```javascript
+class Dog {
+    // 构造方法
+    constructor(name, age) {
+        this.name = name;
+        this._age = age;
+    }
+    
+    run() {
+        console.log("宇宙第一快");
+    }
+    
+    // 获取需要带有返回值
+    get age(){
+        return this._age;
+    }
+    
+    // 设值需要带有参数
+    set age(a) {
+        if (a < 0) a = 0;
+        if (a > 20) a = 20;
+        this._age = a
+    }
+}
+
+// new class 事例对象
+const d = new Dog("老黄", 9);
+
+// 这里会调用setter进行赋值
+d.age = 21; 
+
+// 这里会调用getter获取函数的返回值
+console.log(d.age);
+```
+
+#### 静态方法
+
+类相当于实例的原型，所有在类中定义的方法，都会被实例继承。
+如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。
+
+```javascript
+class Fn{
+    static classFn(){
+        return "hello";
+    }
+}
+
+console.log(Fn.classFn());  // hello
+
+let fn = new Fn();
+fn.classFn();  // Uncaught TypeError: fn.classFn is not a function
+```
+
+上面代码中，Fn类的classFn方法前有static关键字，表明该方法是一个静态方法，可以直接在Fn类上调用（ fn.classFn() )，而不是在Fn类的实例上调用。
+如果在实例上调用静态方法，会抛出一个错误，表示不存在该方法。
+
+注意，如果静态方法包含this关键字，这个this指的是类，而不是实例。
+
+```javascript
+class Fn {
+    static car() {
+        this.bur();
+    }
+    static bur() {
+        console.log('hello');
+    }
+    bur() {
+        console.log('world');
+    }
+}
+
+Fn.car();  // hello
+Fn.bur();  // 静态方法可以直接使用类调用
+let f = new Fn();
+f.bur();  // 普通方法则需要实例对象调用
+```
+
+#### Object.create() 创建对象
+
+使用 `Object.create(构造函数)` 也可以创建对象。
+
+![object-create-func.png](notebook-image/object-create-func.png)
+
+#### Class 继承
+
+![inheritance-class.png](notebook-image/inheritance-class.png)
+
+使用 `extends` 关键字实现 ES6+ 的类继承：
+
+```javascript
+class A {
+    // Class 定义
+}
+
+class B extends A {
+    // Class 定义
+}
+```
+
+#### 数据隐私
+
+使用 `_` 开头声明属性和方法来标识这是一个类内部属性和方法，避免对这样的属性和方法进行直接调用。
+
+PS：这样只是一个约定，并没有强制的禁止直接调用下划线开头的属性和方法。
+

@@ -532,6 +532,8 @@ console.log(obj.__proto__ === Object.prototype);
 
 ### ES6 Class
 
+![summary-class.png](notebook-image/summary-class.png)
+
 Class 是一种特殊的函数
 
 ```javascript
@@ -611,7 +613,7 @@ console.log(d.age);
 如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。
 
 ```javascript
-class Fn{
+class Fn {
     static classFn(){
         return "hello";
     }
@@ -674,4 +676,15 @@ class B extends A {
 使用 `_` 开头声明属性和方法来标识这是一个类内部属性和方法，避免对这样的属性和方法进行直接调用。
 
 PS：这样只是一个约定，并没有强制的禁止直接调用下划线开头的属性和方法。
+
+【ES6+】声明一个私有属性：使用 `#` 来声明一个属性和方法是私有的。
+
+#### 链式调用
+
+通过方法返回 `this` 来实现方法的链式调用。
+
+---
+
+## 如何构建一个项目？？？（地图APP）
+
 

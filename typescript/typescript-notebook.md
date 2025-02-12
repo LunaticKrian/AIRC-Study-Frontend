@@ -48,3 +48,10 @@ https://www.npmjs.com/package/lite-server
 npm install lite-server --save-dev
 ```
 
+---
+
+## TypeScript 数据类型
+
+PS：TypeScript 的类型系统只能在开发（编码）阶段辅助进行类型检查，TypeScript 最终会被编译成 JavaScript，而JavaScript本身不具备类型检查功能。
+
+

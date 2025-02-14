@@ -688,3 +688,141 @@ PS：这样只是一个约定，并没有强制的禁止直接调用下划线开
 ## 如何构建一个项目？？？（地图APP）
 
 
+
+---
+
+## JavaScript Asynchronous 异步
+
+### AJAX 
+
+![what-is-AJAX.png](notebook-image/what-is-AJAX.png)
+
+#### API
+
+API 应用程序接口:
+
+![what-is-API.png](notebook-image/what-is-API.png)
+
+开发接口GitHub仓库：https://github.com/public-apis/public-apis
+
+#### XMLHttpRequest
+
+```javascript
+const request = new XMLHttpRequest();
+```
+
+![request-web-server.png](notebook-image/request-web-server.png)
+
+#### CallBack Hell 回调地狱
+
+
+### Promises Fetch API
+
+#### Promise
+
+![what-is-Promise.png](notebook-image/what-is-Promise.png)
+
+Promise 工作流程
+
+![promise-progress.png](notebook-image/promise-progress.png)
+
+#### then、catch、finally
+
+通过 throw 关键字可以抛出异常信息：
+
+```javascript
+throw new Error("异常信息")
+```
+
+throw 出来的 Error 最终会被 catch 住，然后会执行 catch 块中的代码逻辑。
+
+最终在所有的 then 和 catch 块执行完成之后，最终执行 finally 块逻辑。
+
+#### JavaScript 运行时
+
+MicroTask Queue
+
+![javascript-runtime.png](notebook-image/javascript-runtime.png)
+
+#### 构建 Promise
+
+```javascript
+// 定义一个Promise事例，传入两个处理函数
+const promise = new Promise(function (resolve, reject) {
+    // 通过使用 resolve（处理成功回掉函数）或者使用 reject （处理失败回掉函数）
+})
+```
+
+### async / await 
+
+```javascript
+async function func {
+    // await 一个异步操作
+}
+```
+
+#### try ... catch 处理异常
+
+```javascript
+try {
+    // 可以出现异常的代码片段
+} catch (error) {
+    // 处理可能出现的异常
+}
+```
+
+#### Promises 组合运行
+
+有四个组合工具可用来并发异步操作：Promise.all()、Promise.allSettled()、Promise.any() 和 Promise.race()。
+
+- Promise.all() 并行运行
+
+```javascript
+Promise.all([
+    // 这里可以配置多个异步操作，这里的异步操作是并行执行
+])
+```
+
+
+---
+
+# ⚠️ JavaScript 模块化
+
+MDN 文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules
+
+![modern-javascript-develop.png](notebook-image/modern-javascript-develop.png)
+
+## ES6+ 模块化
+
+![javascript-module.png](notebook-image/javascript-module.png)
+
+![module.png](notebook-image/module.png)
+
+![module-passing.png](notebook-image/module-passing.png)
+
+import / export / export default
+
+## CommonJS 模块化
+
+export / require
+
+---
+
+# ⚠️ NPM 包管理器
+
+https://lodash.com/
+
+一个现代的JavaScript实用程序库，提供模块化、性能和额外功能。
+
+```shell
+npm install lodash-es
+```
+
+## Babel
+
+
+
+---
+
+# Forkify Application
+

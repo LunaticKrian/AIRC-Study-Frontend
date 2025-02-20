@@ -111,3 +111,146 @@ tsc --init
 ]
 ```
 
+---
+
+## TypeScript Class Interface
+
+### Class
+
+声明一个Class类，并事例化这个Class：
+
+```typescript
+// 声明一个Class类
+class Person {
+    // 声明一个name属性为string
+    name: string;
+
+    // 声明一个constructor构造函数，在执行事例化时调用执行
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    // TypeScript Class 中定义方法不需要使用function 关键字
+    showInfo() :void {
+        // this 指向的当前class创建出来的实例对象
+        console.log(this.name);
+    }
+}
+
+// 创建一个对象
+const person = new Person("Krian");
+person.showInfo();
+```
+
+可以直接在 constructor 构造器 入参中声明属性，并在对象初始化时，给这些属性进行赋值。
+
+```typescript
+// 声明一个constructor构造函数
+constructor(public name: string, private balance: number) {
+    // 在使用new关键字时，给这个类的属性进行赋值
+}
+```
+
+只读属性：使用 readonly 关键字修饰
+
+```typescript
+class Person {
+    // 声明一个name属性为string
+    name: string;
+
+    // 使用readonly关键字声明一个只读属性
+    constructor(readonly name: string) {
+        this.name = name;
+    }
+
+    // TypeScript Class 中定义方法不需要使用function 关键字
+    showInfo() :void {
+        // this 指向的当前class创建出来的实例对象
+        console.log(this.name);
+    }
+}
+```
+
+使用 private 关键字，声明一个属性为私有属性，提供 getter 和 setter 方法进行数据操作：
+
+```typescript
+
+```
+
+静态属性和方法：使用 static 关键字进行修饰
+
+```typescript
+
+```
+
+抽象类：使用 abstract 关键字声明一个抽象类 和 抽象方法
+
+```typescript
+
+```
+
+单例对象 私有化构造器：
+
+```typescript
+
+```
+
+#### 继承
+
+使用 extends 关键字实现 Class类之间的继承关系
+
+```typescript
+
+```
+
+使用 protected 关键字声明一个属性为受保护的，无法通过外部直接访问，但是能实现子父类之间继承和重写。
+
+### Interface
+
+interface 允许我们去定义一个对象的结构。
+
+```typescript
+// 使用interface关键字声明接口
+interface Person {
+    name: string;
+    age: number;
+
+    showInfo(): void;
+}
+
+// 初始化一个person对象
+let person: Person;
+person = {
+    name: "krian",
+    age: 24,
+    showInfo() {
+        console.log(this.name, this.age);
+    }
+}
+
+person.showInfo();
+```
+
+class 通过 implements 实现接口（多实现）。
+
+在 interface 内部声明属性时，可以使用 readonly 直接声明为只读属性。
+
+在属性名后面加 ? 声明这个属性是可选的。
+
+---
+
+## TypeScript 泛型
+
+
+---
+
+## TypeScript 结合 Webpack
+
+
+
+---
+
+## TypeScript 结合 Vue
+
+- 官网文档：https://cn.vuejs.org/guide/typescript/overview
+

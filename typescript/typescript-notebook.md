@@ -242,15 +242,247 @@ class 通过 implements 实现接口（多实现）。
 ## TypeScript 泛型
 
 
+
+---
+
+## TypeScript Decorator 装饰器
+
+使用 Decorator 需要在 tsconfig.json 中进行配置：
+
+```json
+ "experimentalDecorators": true
+```
+
+---
+
+## TypeScript 结合 DOM
+
+DOM 元素对应的TS的类型：
+
+```ts
+interface HTMLElementTagNameMap {
+    "a": HTMLAnchorElement;
+    "abbr": HTMLElement;
+    "address": HTMLElement;
+    "applet": HTMLAppletElement;
+    "area": HTMLAreaElement;
+    "article": HTMLElement;
+    "aside": HTMLElement;
+    "audio": HTMLAudioElement;
+    "b": HTMLElement;
+    "base": HTMLBaseElement;
+    "bdi": HTMLElement;
+    "bdo": HTMLElement;
+    "blockquote": HTMLQuoteElement;
+    "body": HTMLBodyElement;
+    "br": HTMLBRElement;
+    "button": HTMLButtonElement;
+    "canvas": HTMLCanvasElement;
+    "caption": HTMLTableCaptionElement;
+    "cite": HTMLElement;
+    "code": HTMLElement;
+    "col": HTMLTableColElement;
+    "colgroup": HTMLTableColElement;
+    "data": HTMLDataElement;
+    "datalist": HTMLDataListElement;
+    "dd": HTMLElement;
+    "del": HTMLModElement;
+    "details": HTMLDetailsElement;
+    "dfn": HTMLElement;
+    "dialog": HTMLDialogElement;
+    "dir": HTMLDirectoryElement;
+    "div": HTMLDivElement;
+    "dl": HTMLDListElement;
+    "dt": HTMLElement;
+    "em": HTMLElement;
+    "embed": HTMLEmbedElement;
+    "fieldset": HTMLFieldSetElement;
+    "figcaption": HTMLElement;
+    "figure": HTMLElement;
+    "font": HTMLFontElement;
+    "footer": HTMLElement;
+    "form": HTMLFormElement;
+    "frame": HTMLFrameElement;
+    "frameset": HTMLFrameSetElement;
+    "h1": HTMLHeadingElement;
+    "h2": HTMLHeadingElement;
+    "h3": HTMLHeadingElement;
+    "h4": HTMLHeadingElement;
+    "h5": HTMLHeadingElement;
+    "h6": HTMLHeadingElement;
+    "head": HTMLHeadElement;
+    "header": HTMLElement;
+    "hgroup": HTMLElement;
+    "hr": HTMLHRElement;
+    "html": HTMLHtmlElement;
+    "i": HTMLElement;
+    "iframe": HTMLIFrameElement;
+    "img": HTMLImageElement;
+    "input": HTMLInputElement;
+    "ins": HTMLModElement;
+    "kbd": HTMLElement;
+    "label": HTMLLabelElement;
+    "legend": HTMLLegendElement;
+    "li": HTMLLIElement;
+    "link": HTMLLinkElement;
+    "main": HTMLElement;
+    "map": HTMLMapElement;
+    "mark": HTMLElement;
+    "marquee": HTMLMarqueeElement;
+    "menu": HTMLMenuElement;
+    "meta": HTMLMetaElement;
+    "meter": HTMLMeterElement;
+    "nav": HTMLElement;
+    "noscript": HTMLElement;
+    "object": HTMLObjectElement;
+    "ol": HTMLOListElement;
+    "optgroup": HTMLOptGroupElement;
+    "option": HTMLOptionElement;
+    "output": HTMLOutputElement;
+    "p": HTMLParagraphElement;
+    "param": HTMLParamElement;
+    "picture": HTMLPictureElement;
+    "pre": HTMLPreElement;
+    "progress": HTMLProgressElement;
+    "q": HTMLQuoteElement;
+    "rp": HTMLElement;
+    "rt": HTMLElement;
+    "ruby": HTMLElement;
+    "s": HTMLElement;
+    "samp": HTMLElement;
+    "script": HTMLScriptElement;
+    "section": HTMLElement;
+    "select": HTMLSelectElement;
+    "slot": HTMLSlotElement;
+    "small": HTMLElement;
+    "source": HTMLSourceElement;
+    "span": HTMLSpanElement;
+    "strong": HTMLElement;
+    "style": HTMLStyleElement;
+    "sub": HTMLElement;
+    "summary": HTMLElement;
+    "sup": HTMLElement;
+    "table": HTMLTableElement;
+    "tbody": HTMLTableSectionElement;
+    "td": HTMLTableDataCellElement;
+    "template": HTMLTemplateElement;
+    "textarea": HTMLTextAreaElement;
+    "tfoot": HTMLTableSectionElement;
+    "th": HTMLTableHeaderCellElement;
+    "thead": HTMLTableSectionElement;
+    "time": HTMLTimeElement;
+    "title": HTMLTitleElement;
+    "tr": HTMLTableRowElement;
+    "track": HTMLTrackElement;
+    "u": HTMLElement;
+    "ul": HTMLUListElement;
+    "var": HTMLElement;
+    "video": HTMLVideoElement;
+    "wbr": HTMLElement;
+}
+```
+
+当我们使用`getElementById`等等其他方法获取元素时，返回结果可能为`null`，但是我们能确保在 HTML 中我们一定能拿到这个元素，可以使用 ! 声明一定可以获取到对应元素。
+
+```ts
+const appDom = document.getElementById("app")! as HTMLDivElement;
+```
+
+---
+
+## TypeScript 多文件 Multiple Files
+
+### namespace
+
+```ts
+namespace 空间名 {
+    // 声明interface
+}
+```
+
+```ts
+/// <refrence path='xxx.ts'/>
+```
+
+### ES module
+
+
+
+
+ 
 ---
 
 ## TypeScript 结合 Webpack
 
+https://webpack.js.org/
 
+![webpack-homepage.png](notebook-image/webpack-homepage.png)
+
+安装指令：
+
+```shell
+npm install --save-dev webpack webpack-cli webpack-dev-server 
+```
+
+```shell
+npm install --save-dev typescript ts-loader
+```
+
+package.json
+
+```json
+"devDependencies": {
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+}
+```
+
+```shell
+npm install --save-dev clean-webpack-plugin
+```
+
+---
+
+## TypeScript 结合 三方库
+
+### Lodash
+
+解决TS不识别JS原生三方库抛出异常问题
+
+```shell
+npm install --save-dev @type/lodash
+```
+
+使用 declare 关键字声明变量存在
+
+### class-transformer
+
+
+
+### class-validator
+
+
+
+### TypeScript 结合 Axios
 
 ---
 
 ## TypeScript 结合 Vue
 
 - 官网文档：https://cn.vuejs.org/guide/typescript/overview
+
+
+
+---
+
+## TypeScript 结合 Node
+
+
+
+```shell
+
+```
 
